@@ -1,0 +1,232 @@
+:root {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #102033;
+  background: linear-gradient(180deg, #f4f8fb 0%, #ebf1f7 100%);
+  --bg: #f4f8fb;
+  --panel: rgba(255, 255, 255, 0.88);
+  --panel-strong: #ffffff;
+  --border: rgba(16, 32, 51, 0.12);
+  --text: #102033;
+  --muted: #5e7288;
+  --accent: #16766b;
+  --accent-strong: #0f5d55;
+  --danger: #ba4e42;
+  --shadow: 0 18px 45px rgba(27, 51, 78, 0.08);
+  --surface: rgba(255, 255, 255, 0.8);
+}
+
+:root[data-theme="dark"] {
+  color: #eef5ff;
+  background: linear-gradient(180deg, #0d1624 0%, #101b2d 100%);
+  --bg: #101b2d;
+  --panel: rgba(12, 20, 33, 0.9);
+  --panel-strong: #122136;
+  --border: rgba(205, 223, 245, 0.14);
+  --text: #eef5ff;
+  --muted: #9cb2c9;
+  --accent: #4db6a8;
+  --accent-strong: #228478;
+  --danger: #ff8f84;
+  --shadow: 0 22px 48px rgba(0, 0, 0, 0.32);
+  --surface: rgba(18, 33, 54, 0.86);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  background: radial-gradient(circle at top left, rgba(22, 118, 107, 0.12), transparent 35%), var(--bg);
+  color: var(--text);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.button {
+  border: 1px solid transparent;
+  border-radius: 14px;
+  padding: 0.85rem 1.1rem;
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.button:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.button--primary {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-strong) 100%);
+  color: #fff;
+  box-shadow: 0 12px 28px rgba(22, 118, 107, 0.2);
+}
+
+.button--primary:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.button--ghost {
+  background: var(--surface);
+  color: var(--text);
+  border-color: var(--border);
+}
+
+.button--full {
+  width: 100%;
+}
+
+.section-label {
+  margin: 0 0 0.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.73rem;
+  color: var(--muted);
+}
+
+.app-status {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  gap: 0.75rem;
+  text-align: center;
+  padding: 2rem;
+}
+
+.panel-message {
+  padding: 1rem 1.2rem;
+  border-radius: 16px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+}
+
+.panel-message--error,
+.sidebar__feedback--error,
+.auth-form__error {
+  color: var(--danger);
+}
+
+.field-group {
+  display: grid;
+  gap: 0.55rem;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  padding: 0.9rem 1rem;
+  color: var(--text);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: rgba(22, 118, 107, 0.45);
+  box-shadow: 0 0 0 4px rgba(22, 118, 107, 0.1);
+}
+
+textarea {
+  min-height: 320px;
+  resize: vertical;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  font-size: 0.94rem;
+  color: var(--muted);
+}
+
+.note-badge,
+.tag-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.24rem 0.65rem;
+  border-radius: 999px;
+  background: rgba(22, 118, 107, 0.12);
+  color: var(--accent);
+  font-size: 0.76rem;
+  font-weight: 600;
+}
+
+.note-badge--danger {
+  background: rgba(186, 78, 66, 0.14);
+  color: var(--danger);
+}
+
+.shared-note-page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+}
+
+.shared-note-card {
+  width: min(760px, 100%);
+  border-radius: 28px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  padding: 2rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.shared-note-card h1 {
+  margin: 0;
+}
+
+.shared-note-card__meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  color: var(--muted);
+  flex-wrap: wrap;
+}
+
+.shared-note-card__content {
+  white-space: pre-wrap;
+  line-height: 1.7;
+  padding: 1.2rem;
+  border-radius: 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+
+@media (max-width: 860px) {
+  .button,
+  input,
+  textarea,
+  select {
+    font-size: 16px;
+  }
+}

@@ -1,0 +1,114 @@
+.auth-page {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: var(--space-5);
+  padding: var(--space-5);
+  background:
+    radial-gradient(circle at top right, rgba(34, 197, 94, 0.12), transparent 25%),
+    radial-gradient(circle at bottom left, rgba(56, 189, 248, 0.1), transparent 25%),
+    var(--bg);
+}
+
+.auth-hero,
+.auth-card {
+  border-radius: 24px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.auth-hero {
+  padding: clamp(2rem, 5vw, 4rem);
+  background:
+    linear-gradient(160deg, rgba(17, 24, 39, 0.96), rgba(15, 23, 42, 0.92)),
+    var(--card);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-3);
+}
+
+.auth-hero h1 {
+  margin: 0;
+  font-size: clamp(3rem, 6vw, 5.6rem);
+  line-height: 0.96;
+  max-width: 8ch;
+}
+
+.auth-hero__copy {
+  margin: 0;
+  max-width: 34rem;
+  color: var(--text-secondary);
+  font-size: 1.04rem;
+  line-height: 1.7;
+}
+
+.auth-hero__eyebrow {
+  margin: 0;
+  color: var(--secondary);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.auth-card {
+  background: var(--card-soft);
+  backdrop-filter: blur(18px);
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.auth-tabs {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.45rem;
+  background: var(--card-muted);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 0.35rem;
+}
+
+.auth-tabs__button {
+  border: 0;
+  background: transparent;
+  color: var(--text-secondary);
+  border-radius: 12px;
+  padding: 0.9rem 1rem;
+  transition: var(--transition);
+}
+
+.auth-tabs__button--active {
+  background: rgba(56, 189, 248, 0.14);
+  color: var(--text);
+}
+
+.auth-form {
+  display: grid;
+  gap: var(--space-3);
+  padding: var(--space-5) var(--space-2) var(--space-2);
+}
+
+.auth-form h2 {
+  margin: 0;
+}
+
+.auth-form label {
+  display: grid;
+  gap: 0.45rem;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 960px) {
+  .auth-page {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .auth-page {
+    padding: var(--space-3);
+  }
+}

@@ -1,0 +1,234 @@
+.notes-workspace {
+  display: grid;
+  grid-template-columns: minmax(320px, 380px) minmax(0, 1fr);
+  gap: var(--space-4);
+}
+
+.notes-panel {
+  display: grid;
+  gap: var(--space-4);
+  align-content: start;
+}
+
+.notes-browser {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.note-card--premium {
+  background: var(--card-muted);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  box-shadow: 0 16px 36px rgba(2, 6, 23, 0.22);
+  transition: var(--transition);
+}
+
+.note-card--premium:hover {
+  transform: translateY(-2px);
+  border-color: var(--secondary);
+}
+
+.note-card__link {
+  display: grid;
+  gap: 0.7rem;
+  padding: var(--space-4);
+}
+
+.note-card__title-row,
+.note-card__status {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.7rem;
+}
+
+.note-card__excerpt {
+  margin: 0;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.note-card__tags,
+.note-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.note-card__actions {
+  padding: 0 var(--space-4) var(--space-4);
+}
+
+.notes-editor-column {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.editor-card,
+.history-card {
+  background: var(--card-soft);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  border-radius: 22px;
+  padding: var(--space-5);
+}
+
+.editor-card {
+  display: grid;
+  gap: var(--space-4);
+  position: relative;
+}
+
+.editor-card__header {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.editor-card__header h2 {
+  margin: 0;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+}
+
+.editor-card__badges,
+.editor-card__actions,
+.editor-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.editor-card__actions {
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.editor-card__status {
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+}
+
+.editor-toolbar {
+  position: sticky;
+  top: 96px;
+  z-index: 5;
+  padding: 0.85rem;
+  border-radius: 18px;
+  background: rgba(15, 23, 42, 0.86);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(16px);
+}
+
+.editor-toolbar .button {
+  flex: 0 0 auto;
+}
+
+.share-panel {
+  display: grid;
+  gap: 0.45rem;
+  padding: var(--space-4);
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  background: var(--card-muted);
+}
+
+.share-panel a {
+  color: var(--secondary);
+  word-break: break-all;
+}
+
+.field-group {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.field-group label {
+  color: var(--text-secondary);
+}
+
+.field-group input#title {
+  font-size: clamp(2rem, 4vw, 2.9rem);
+  font-weight: 700;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.field-group input#tags {
+  background: transparent;
+}
+
+.field-group textarea {
+  min-height: 360px;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  line-height: 1.8;
+  box-shadow: none;
+}
+
+.notes-editor-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-4);
+}
+
+.history-card__header {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.history-card__header h3 {
+  margin: 0;
+}
+
+.history-list {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.history-item {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  background: var(--card-muted);
+}
+
+.history-item p,
+.history-item small,
+.history-card__feedback {
+  color: var(--text-secondary);
+}
+
+.panel-controls {
+  min-width: 160px;
+}
+
+.editor-loading {
+  min-height: 280px;
+  display: grid;
+  place-items: center;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 1180px) {
+  .notes-workspace {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .editor-card__header,
+  .editor-card__actions,
+  .history-item,
+  .notes-editor-grid {
+    grid-template-columns: 1fr;
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
