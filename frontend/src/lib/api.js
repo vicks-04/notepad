@@ -1,4 +1,20 @@
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
+function normalizeApiUrl(value) {
+  if (!value) {
+    return value;
+  }
+
+  const trimmedValue = value.trim().replace(/\/+$/, "");
+
+  if (!trimmedValue) {
+    return "";
+  }
+
+  return trimmedValue.endsWith("/api") ? trimmedValue : `${trimmedValue}/api`;
+}
+
+const API_URL =
+  normalizeApiUrl(import.meta.env.VITE_API_URL) ||
+  (import.meta.env.DEV ? "http://localhost:5000/api" : "/api");
 
 async function request(path, options = {}) {
   const { headers: customHeaders = {}, ...restOptions } = options;
